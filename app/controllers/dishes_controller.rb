@@ -34,12 +34,21 @@ class DishesController < ApplicationController
 		## now remove any of the matches that contain any of the keywords in params[:keywords]
 		## @TODO
 
+
+		## first, get all the courses
+		## then, filter those results by cuisine
+		## then, filter those results by diet
+
+		## IF there's not enough results, 
+		## remove the cuisine filter
+
 		dishes = Dish.joins(:diets, :cuisines, :courses).where(courses: {name: params[:coursesFilter]}).where(cuisines: {name: params[:cuisinesFilter]}).where(diets: {name: params[:dietsFilter]}).uniq	
 
-		if dishes.length < 10
-			dishes = Dish.joins(:diets, :cuisines, :courses).where(courses: {name: params[:coursesFilter]}).where(diets: {name: params[:dietsFilter]}).uniq	
+		# byebug
+		if dishes.length < 10	
+			dishes = dishes + Dish.joins(:diets).where(diets: {name: params[:dietsFilter]})
 		end
-		
+
 		dishes.uniq!
 
 		render json:dishes.to_json( include: [recipe: {only: [:id, :title, :rating, :servings, :cook_time, :photo]}])

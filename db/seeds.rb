@@ -40,11 +40,9 @@ end
 courses = [
 	"starter",
 	"appetizer",
-	"antipasti",
 	"antipasto",
 	"lunch",
 	"snack",
-	"main course",
 	"main dish",
 	"side dish",
 	"dinner",
