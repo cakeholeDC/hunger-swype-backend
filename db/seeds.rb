@@ -34,7 +34,7 @@ diets = [
 ] 
 
 diets.each do |item|
-  Diet.create(name: item)
+  Diet.create(name: item.downcase)
 end
 
 courses = [
@@ -54,7 +54,7 @@ courses = [
 ] 
 
 courses.each do |item|
-  Course.create(name: item)
+  Course.create(name: item.downcase)
 end
 
 cuisines = [
@@ -79,7 +79,7 @@ cuisines = [
 ] 
 
 cuisines.each do |item|
-  Cuisine.create(name: item)
+  Cuisine.create(name: item.downcase)
 end
 
 API_DATA[:recipes].each do |recipe|
@@ -122,28 +122,28 @@ API_DATA[:recipes].each do |recipe|
 
   ## DIET RELATIONSHIPS
   diets.each do |diet|
-  	if diet == "ketogenic"
+  	if diet.downcase == "ketogenic"
 		recipe[diet.to_sym] == true
   		DishDiet.create(
   			dish_id: dish.id,
-  			diet_id: Diet.find_or_create_by(name: diet).id
+  			diet_id: Diet.find_or_create_by(name: diet.downcase).id
   		)
-	elsif recipe[:diets].include?(diet)
+	elsif recipe[:diets].include?(diet.downcase)
 		DishDiet.create(
 			dish_id: dish.id,
-			diet_id: Diet.find_or_create_by(name: diet).id
+			diet_id: Diet.find_or_create_by(name: diet.downcase).id
 		)
 	end
   end
 
   ## COURSE RELATIONSHIPS
   courses.each do |course| 
-  	if recipe[:dishTypes].include?(course)  
-  		course = "antipasto" if course == "antipasti"
-  		course = "main dish" if course == "main course" 
+  	if recipe[:dishTypes].include?(course.downcase)  
+  		course = "antipasto" if course.downcase == "antipasti"
+  		course = "main dish" if course.downcase == "main course" 
   		DishCourse.create(
   			dish_id: dish.id,
-  			course_id: Course.find_or_create_by(name: course).id
+  			course_id: Course.find_or_create_by(name: course.downcase).id
 		)
   		# dish.courses.build(name: Course.find_or_create_by(name: course))
   	end
@@ -151,10 +151,10 @@ API_DATA[:recipes].each do |recipe|
 
   ## CUISINE RELATIONSHIPS
   cuisines.each do |cuisine|
-  	if recipe[:cuisines].include?(cuisine)  
+  	if recipe[:cuisines].include?(cuisine.downcase)  
   		DishCuisine.create(
   			dish_id: dish.id,
-  			cuisine_id: Cuisine.find_or_create_by(name: cuisine).id
+  			cuisine_id: Cuisine.find_or_create_by(name: cuisine.downcase).id
   		)
   		# dish.cuisines.build(name: Cuisine.find_or_create_by(name: cuisine))
   	end
