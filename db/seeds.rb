@@ -90,6 +90,7 @@ API_DATA[:recipes].each do |recipe|
   #iterate through recipe.analyzedInstructions and reduce to the required data
   if recipe[:analyzedInstructions].length > 0
 	  instructions = recipe[:analyzedInstructions][0][:steps].map do |instruction|
+      byebug
 	    {
 	      step: instruction[:number],
 	      details: instruction[:step]
