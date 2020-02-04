@@ -35,6 +35,11 @@ class DishesController < ApplicationController
 		## @TODO
 
 		dishes = Dish.joins(:diets, :cuisines, :courses).where(courses: {name: params[:coursesFilter]}).where(cuisines: {name: params[:cuisinesFilter]}).where(diets: {name: params[:dietsFilter]}).uniq	
+
+		if dishes.length < 10
+			dishes = Dish.joins(:diets, :cuisines, :courses).where(courses: {name: params[:coursesFilter]}).where(diets: {name: params[:dietsFilter]}).uniq	
+		end
+		
 		dishes.uniq!
 
 		render json:dishes.to_json( include: [recipe: {only: [:id, :title, :rating, :servings, :cook_time, :photo]}])
