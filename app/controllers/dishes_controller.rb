@@ -46,7 +46,7 @@ class DishesController < ApplicationController
 
 		# byebug
 		if dishes.length < 10	
-			dishes = dishes + Dish.joins(:diets).where(diets: {name: params[:dietsFilter]})
+			dishes = dishes + Dish.joins(:diets).where(diets: {name: params[:dietsFilter]}).limit(25)
 		end
 
 		dishes.uniq!
