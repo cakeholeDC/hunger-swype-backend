@@ -15,9 +15,12 @@ Rails.application.routes.draw do
   post '/get-matches/', to: 'dishes#match'
   get '/match/recipe/:id', to: 'recipes#show'
 
+  get '/profile', to: 'users#profile'
+
   namespace :api do
     namespace :v1 do
-      post '/login', to: 'dishes#show'#'auth#create'
+      post '/login', to: 'auth#create'
+      get '/login', to: 'dishes#index'
     end
   end
   

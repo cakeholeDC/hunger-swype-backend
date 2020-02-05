@@ -1,7 +1,7 @@
 class Api::V1::AuthController < ApplicationController
 
 	def create
-		userInstance = Musician.find_by(username: params[:username])
+		userInstance = User.find_by(username: params[:username])
 
 		# isUserFound?
 		if userInstance
@@ -25,13 +25,14 @@ class Api::V1::AuthController < ApplicationController
 					error: true,
 					message: "Incorrect Password"
 					}, status: :unauthorized
-				end
+			end
 		#userDoesNotExist
 		else
 			render json: {
 				error: true,
 				message: "Username not found"
 				}, status: :not_acceptable
-			end
+			
 		end
+	end
 end
