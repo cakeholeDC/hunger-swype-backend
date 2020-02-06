@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_diets, only: [:create]
   # resources :dish_courses
   # resources :dish_cuisines
   # resources :dish_diets
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   get '/match/recipe/:id', to: 'recipes#show'
 
   get '/profile', to: 'users#profile'
+  post '/preferences', to: 'user_diets#create'
 
   namespace :api do
     namespace :v1 do

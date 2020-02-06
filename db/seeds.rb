@@ -8,12 +8,12 @@
 DishDiet.destroy_all
 DishCuisine.destroy_all
 DishCourse.destroy_all
+UserDiet.destroy_all
 Diet.destroy_all
 Cuisine.destroy_all
 Course.destroy_all
 Dish.destroy_all
 Recipe.destroy_all
-
 
 require_relative '../../api-data/apiDataToSeed.rb' ## imports API_DATA
 # require_relative '../API/spoonacular-100-random-vegan.json.rb'  ##imports VEGAN

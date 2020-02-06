@@ -8,8 +8,17 @@ class UsersController < ApplicationController
         user = User.find(payload["user_id"])
         render json: user.to_json(
             except: [:password_digest, :updated_at, :created_at],
+            include: [:diets]
         )
     end
+
+    # def show
+    #     user = User.find(params[:id])
+    #     render json: user.to_json(
+    #         except: [:password_digest, :updated_at, :created_at],
+    #         include: [:diets]
+    #     )
+    # end
 
     def create
         user = User.create(
@@ -25,7 +34,7 @@ class UsersController < ApplicationController
         render json: {
             jwt: token,
             currentUser: user.to_json(
-                except: [:updated_at, :created_at]
+                except: [:password_digest, :updated_at, :created_at]
             )
         }
     end
@@ -45,7 +54,7 @@ class UsersController < ApplicationController
         render json: {
             jwt: token,
             currentUser: user.to_json(
-                except: [:updated_at, :created_at]
+                except: [:password_digest, :updated_at, :created_at]
             )
         }
     end
