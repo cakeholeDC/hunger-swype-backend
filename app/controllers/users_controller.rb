@@ -5,8 +5,7 @@ class UsersController < ApplicationController
 
         payload = decode(token)
 
-        user = User.find(payload["musician_id"])
-
+        user = User.find(payload["user_id"])
         render json: user.to_json(
             except: [:password_digest, :updated_at, :created_at],
         )

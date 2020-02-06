@@ -10,7 +10,7 @@ class Api::V1::AuthController < ApplicationController
 			if userInstance.authenticate(params[:password])
 				
 				# setUserToken
-				token = encode({ musician_id: userInstance.id })
+				token = encode({ user_id: userInstance.id })
 
 				# renderSerializedUserData
 				render json: {
