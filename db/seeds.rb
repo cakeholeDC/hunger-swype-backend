@@ -14,6 +14,16 @@ Cuisine.destroy_all
 Course.destroy_all
 Dish.destroy_all
 Recipe.destroy_all
+User.destroy_all
+
+cakehole = User.create(
+            username: "cakehole", 
+            password: "password", 
+            name: "Kyle Cole", 
+            region: "Washington, DC", 
+            # email: params[:email], 
+            avatar: 'https://avatars.githubusercontent.com/u/54221202', 
+        )
 
 require_relative '../../api-data/apiDataToSeed.rb' ## imports API_DATA
 # require_relative '../API/spoonacular-100-random-vegan.json.rb'  ##imports VEGAN

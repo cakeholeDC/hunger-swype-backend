@@ -15,7 +15,8 @@ class Api::V1::AuthController < ApplicationController
 				# renderSerializedUserData
 				render json: {
 					currentUser: userInstance.to_json(
-				            except: [:updated_at, :created_at], 
+				            except: [:updated_at, :created_at],
+				            include: [:diets, :favorites] 
 						),
 						jwt: token
 						}, status: :accepted

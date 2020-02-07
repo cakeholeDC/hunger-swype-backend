@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :favorites, only: [:create, :update]
   resources :user_diets, only: [:create]
   # resources :dish_courses
   # resources :dish_cuisines
   # resources :dish_diets
-  resources :users, only: [:create, :update]
-  # resources :favorites
+  resources :users, only: [:show, :create, :update]
+  resources :favorites, only: [:create, :update]
   resources :courses, only: [:index]
   resources :cuisines, only: [:index]
   resources :diets, only: [:index]
