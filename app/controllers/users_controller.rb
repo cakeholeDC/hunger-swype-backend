@@ -26,7 +26,7 @@ class UsersController < ApplicationController
             password: params[:password], 
             name: params[:name], 
             region: params[:region], 
-            # email: params[:email], 
+            email: params[:email], 
             avatar: params[:avatar], 
         )
 
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
             password: params[:password], 
             name: params[:name], 
             region: params[:region], 
-            # email: params[:email], 
+            email: params[:email], 
             avatar: params[:avatar], 
         )
 
