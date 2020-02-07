@@ -1,10 +1,32 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# require_relative '../../api-data/apiDataToSeed.rb' ## imports API_DATA
+files = [
+  'KETOGENIC',
+  'DAIRYFREE',
+  'DINNERS',
+  'FODMAP',
+  'GLUTEN',
+  'PALEOLITHIC',
+  'PESCATARIAN',
+  'RECIPES',
+  'SUSTAINABLE',
+  "VEGAN",
+  "VEGETARIAN",
+  "WHOLE"
+]
+
+API_DATA = {
+  "recipes": []
+}
+
+files.each do |file|
+  require_relative "../../api-data/ruby/spoonacular-100-random-#{file.downcase}.rb"
+  Object.const_get(file)[:recipes].each do |recipe|
+    API_DATA[:recipes] << recipe
+  end
+end
+
+API_DATA[:recipes].uniq! 
+
 DishDiet.destroy_all
 DishCuisine.destroy_all
 DishCourse.destroy_all
@@ -18,14 +40,22 @@ User.destroy_all
 
 cakehole = User.create(
             username: "cakehole", 
-            password: "password", 
+            password: "cakehole-flatiron", 
             name: "Kyle Cole", 
             region: "Washington, DC", 
             # email: params[:email], 
             avatar: 'https://avatars.githubusercontent.com/u/54221202', 
-        )
+        ) if !User.find_by(username: "cakehole")
 
-require_relative '../../api-data/apiDataToSeed.rb' ## imports API_DATA
+demo = User.create(
+            username: "demo", 
+            password: "password", 
+            name: "Demo User", 
+            region: "Washington, DC", 
+            # email: params[:email], 
+            avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png', 
+        ) if !User.find_by(username: "demo")
+
 # require_relative '../API/spoonacular-100-random-vegan.json.rb'  ##imports VEGAN
 
 ## IMPORT DIETS, CUISINE, and COURSES first
@@ -111,6 +141,7 @@ API_DATA[:recipes].each do |recipe|
     rating: recipe[:spoonacularScore],
     servings: recipe[:servings],
     cook_time: recipe[:readyInMinutes],
+    source_url: recipe[:sourceUrl],
     ingredients: ingredients.join('; '),
   )
 
@@ -168,6 +199,3 @@ API_DATA[:recipes].each do |recipe|
   dish.save
 
 end
-
-
-
