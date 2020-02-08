@@ -18,7 +18,7 @@ class UserDietsController < ApplicationController
 
         render json: user.to_json(
             except: [:password_digest, :updated_at, :created_at],
-            include: [:diets, :favorites]
+            include: [:diets, :favorite_recipes]
         )
     end
 
