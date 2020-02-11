@@ -36,25 +36,6 @@ Cuisine.destroy_all
 Course.destroy_all
 Dish.destroy_all
 Recipe.destroy_all
-# User.destroy_all
-
-cakehole = User.create(
-            username: "cakehole", 
-            password: "cakehole", 
-            name: "Kyle Cole", 
-            region: "Washington, DC", 
-            # email: params[:email], 
-            avatar: 'https://avatars.githubusercontent.com/u/54221202', 
-        ) if !User.find_by(username: "cakehole")
-
-demo = User.create(
-            username: "demo", 
-            password: "demo", 
-            name: "Demo User", 
-            region: "Washington, DC", 
-            # email: params[:email], 
-            avatar: 'https://launchwebsitedesign.com/wp-content/uploads/2017/09/josh-d-avatar.jpg', 
-        ) if !User.find_by(username: "demo")
 
 # require_relative '../API/spoonacular-100-random-vegan.json.rb'  ##imports VEGAN
 
