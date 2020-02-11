@@ -43,17 +43,18 @@ class UsersController < ApplicationController
     def update
         user = User.find(params[:id])
         user.update(
-            username: params[:username], 
-            password: params[:password], 
+            # username: params[:username], 
+            # password: params[:password], 
             name: params[:name], 
             region: params[:region], 
             email: params[:email], 
             avatar: params[:avatar], 
         )
+        user.save
 
-        token = encode({ user_id: user.id })
+        # token = encode({ user_id: user.id })
         render json: {
-            jwt: token,
+            # jwt: token,
             currentUser: user.to_json(
                 except: [:password_digest, :updated_at, :created_at],
                 include: [:diets, :favorite_recipes]
