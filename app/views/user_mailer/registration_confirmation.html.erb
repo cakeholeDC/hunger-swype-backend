@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  		<h1>Hi <%= @user.username %>,</h1>
+
+		<p>Thanks for signing up for Hunger Swype! There's one last step before you can start using the app.</p>
+
+ 		<%= link_to "Activate your Flavour Profile.", "http://localhost:3000/users/confirm_email/#{@user.confirm_token}" %> 
+
+		<p>Kyle<br><small>Founder, Hunger Swype</small></p>
+	</body>
+</html>
