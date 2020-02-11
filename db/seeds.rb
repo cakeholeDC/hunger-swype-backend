@@ -36,11 +36,11 @@ Cuisine.destroy_all
 Course.destroy_all
 Dish.destroy_all
 Recipe.destroy_all
-User.destroy_all
+# User.destroy_all
 
 cakehole = User.create(
             username: "cakehole", 
-            password: "cakehole-flatiron", 
+            password: "cakehole", 
             name: "Kyle Cole", 
             region: "Washington, DC", 
             # email: params[:email], 
@@ -49,11 +49,11 @@ cakehole = User.create(
 
 demo = User.create(
             username: "demo", 
-            password: "password", 
+            password: "demo", 
             name: "Demo User", 
             region: "Washington, DC", 
             # email: params[:email], 
-            avatar: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png', 
+            avatar: 'https://launchwebsitedesign.com/wp-content/uploads/2017/09/josh-d-avatar.jpg', 
         ) if !User.find_by(username: "demo")
 
 # require_relative '../API/spoonacular-100-random-vegan.json.rb'  ##imports VEGAN
