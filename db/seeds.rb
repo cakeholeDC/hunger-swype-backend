@@ -31,6 +31,7 @@ DishDiet.destroy_all
 DishCuisine.destroy_all
 DishCourse.destroy_all
 UserDiet.destroy_all
+Favorite.destroy_all
 Diet.destroy_all
 Cuisine.destroy_all
 Course.destroy_all
@@ -77,6 +78,7 @@ courses.each do |item|
 end
 
 cuisines = [
+	"American",
 	"Indian",
 	"Vietnamese",
 	"Asian",
@@ -87,7 +89,6 @@ cuisines = [
 	"Greek",
 	"French",
 	"Mexican",
-	"American",
 	"Spanish",
 	"South American",
 	"Latin American",
@@ -102,6 +103,7 @@ cuisines.each do |item|
 end
 
 API_DATA[:recipes].each do |recipe|
+  
   #iterate through recipe.extendedIngredients and store as a string
   ingredients = recipe[:extendedIngredients].map do |ingredient|
     ingredient[:originalString]
@@ -168,7 +170,7 @@ API_DATA[:recipes].each do |recipe|
 
   ## CUISINE RELATIONSHIPS
   cuisines.each do |cuisine|
-  	if recipe[:cuisines].include?(cuisine.downcase)  
+  	if recipe[:cuisines].include?(cuisine)  
   		DishCuisine.create(
   			dish_id: dish.id,
   			cuisine_id: Cuisine.find_or_create_by(name: cuisine.downcase).id
@@ -176,7 +178,7 @@ API_DATA[:recipes].each do |recipe|
   		# dish.cuisines.build(name: Cuisine.find_or_create_by(name: cuisine))
   	end
   end
-
+  
   dish.save
 
 end

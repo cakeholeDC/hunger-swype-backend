@@ -14,9 +14,21 @@ class Dish < ApplicationRecord
   has_many :favorites
   has_many :users, through: :favorites
 
-  def getDiets
+  def get_diets
     self.diets.map do |diet|
       diet.name
+    end
+  end
+
+  def get_cuisines
+    self.cuisines.map do |cuisine|
+      cuisine.name
+    end
+  end
+
+  def get_courses
+    self.courses.map do |course|
+      course.name
     end
   end
 
