@@ -27,14 +27,17 @@ class DishesController < ApplicationController
 			!(dish.get_courses && courses).empty?
 		end
 
-		while dishCourses.length < 30 do
-			add = dishCuisines.sample
+		byebug
+		while dishCourses.length < 50 do
+			
+			add = dishes.sample
+			
 			if !dishCourses.include?(add) 
 				dishCourses << add
 			end
-		end
 
-		# byebug
+		end
+		byebug
 		# results = dishCourses
 
 		render json:dishCourses.to_json( include: [recipe: {only: [:id, :title, :rating, :servings, :cook_time, :photo]}])
