@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post '/login', to: 'auth#create'
-      get '/login', to: 'dishes#index'
+      # get '/login', to: 'dishes#index'
     end
   end
   
