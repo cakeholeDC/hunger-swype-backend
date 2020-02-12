@@ -198,7 +198,7 @@ KETOGENIC = {
       "title": "Salmon with Dill and Lemon",
       "readyInMinutes": 5,
       "servings": 8,
-      "image": "https://spoonacular.com/recipeImages/532796-556x370.png",
+      "image": "http://farm8.staticflickr.com/7008/6510364145_ced180d1e8.jpg",
       "imageType": "png",
       "cuisines": [],
       "dishTypes": [
@@ -1121,7 +1121,7 @@ KETOGENIC = {
       "title": "Shepherd's Pie",
       "readyInMinutes": 105,
       "servings": 6,
-      "image": "https://spoonacular.com/recipeImages/507857-556x370.jpg",
+      "image": "https://www.browneyedbaker.com/wp-content/uploads/2014/03/Shepards-Pie-14-754.jpg",
       "imageType": "jpg",
       "cuisines": [
         "Eastern European",
@@ -4062,7 +4062,7 @@ KETOGENIC = {
         }
       ],
       "id": 222040,
-      "title": "Sirloin steaks with pizzaiola sauce",
+      "title": "Sirloin Steaks with Pizzaiola Sauce",
       "readyInMinutes": 30,
       "servings": 4,
       "image": "https://spoonacular.com/recipeImages/222040-556x370.jpg",
@@ -8467,7 +8467,7 @@ KETOGENIC = {
       "title": "Cheesy Chili Spaghetti Squash Casserole – Low Carb",
       "readyInMinutes": 45,
       "servings": 8,
-      "image": "https://spoonacular.com/recipeImages/967912-556x370.jpg",
+      "image": "https://www.ibreatheimhungry.com/wp-content/uploads/2013/12/kraftcasserolefg1-500x500.jpg",
       "imageType": "jpg",
       "cuisines": [
         "American"
