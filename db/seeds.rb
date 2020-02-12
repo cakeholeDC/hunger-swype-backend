@@ -19,7 +19,7 @@ API_DATA = {
 }
 
 files.each do |file|
-  require_relative "../../api-data/ruby/spoonacular-100-random-#{file.downcase}.rb"
+  require_relative "./source/spoonacular-100-random-#{file.downcase}.rb"
   Object.const_get(file)[:recipes].each do |recipe|
     API_DATA[:recipes] << recipe
   end
