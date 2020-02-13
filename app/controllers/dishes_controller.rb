@@ -23,20 +23,30 @@ class DishesController < ApplicationController
 			!(dish.get_cuisines & cuisines).empty? 
 		end
 
-		dishCourses = dishCuisines.select do |dish|
-			!(dish.get_courses && courses).empty?
-		end
+		## FOR DEMO
+		# dishCourses = dishCuisines.select do |dish|
+		# 	!(dish.get_courses && courses).empty?
+		# end
 
+		## FOR DEMO
+		# while dishCourses.length < 50 do
 		while dishCourses.length < 50 do
 			
 			add = dishes.sample
 			
-			if !dishCourses.include?(add) 
-				dishCourses << add
+			## FOR DEMO
+			# if !dishCourses.include?(add) 
+			# 	dishCourses << add
+			# end
+
+			if !dishCuisines.include?(add) 
+				dishCuisines << add
 			end
 
 		end
 
-		render json:dishCourses.to_json( include: [recipe: {only: [:id, :title, :rating, :servings, :cook_time, :photo]}])
+		## FOR DEMO
+		# render json:dishCourses.to_json( include: [recipe: {only: [:id, :title, :rating, :servings, :cook_time, :photo]}])
+		render json:dishCuisines.to_json( include: [recipe: {only: [:id, :title, :rating, :servings, :cook_time, :photo]}])
 	end
 end
