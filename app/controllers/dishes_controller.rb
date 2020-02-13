@@ -30,7 +30,7 @@ class DishesController < ApplicationController
 
 		## FOR DEMO
 		# while dishCourses.length < 50 do
-		while dishCourses.length < 50 do
+		while dishCuisines.length < 50 do
 			
 			add = dishes.sample
 			
