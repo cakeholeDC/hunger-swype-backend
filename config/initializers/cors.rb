@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://hunger-swype.herokuapp.com'
+    origins 'https://master.d12dcd0jiavy5p.amplifyapp.com'
 
     resource '*',
       headers: :any,
